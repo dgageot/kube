@@ -17,6 +17,4 @@ RUN mkdir /kube
 RUN wget -q -O - https://github.com/GoogleCloudPlatform/kubernetes/archive/2978c9923ed1ce0cc9c77bdd173896a8d0d85031.tar.gz | tar xzf - -C /kube --strip-components=1
 RUN /kube/hack/build-go.sh
 
-# List pods by default
-#
-CMD ["/kube/cluster/kubecfg.sh", "list", "pods"]
+ENTRYPOINT ["/kube/cluster/kubecfg.sh"]
